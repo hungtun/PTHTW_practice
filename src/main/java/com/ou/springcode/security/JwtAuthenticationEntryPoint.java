@@ -8,6 +8,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.http.MediaType;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.AuthenticationEntryPoint;
+import org.springframework.stereotype.Component;
 
 import com.ou.springcode.dto.ApiError;
 
@@ -19,6 +20,7 @@ import tools.jackson.databind.ObjectMapper;
 /**
  * Trả về 401 khi chưa đăng nhập hoặc token không hợp lệ
  */
+@Component
 public class JwtAuthenticationEntryPoint implements AuthenticationEntryPoint {
     private static final Logger log = LoggerFactory.getLogger(JwtAuthenticationEntryPoint.class);
 
