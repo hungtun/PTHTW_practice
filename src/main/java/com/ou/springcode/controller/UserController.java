@@ -10,12 +10,19 @@ import org.springframework.web.bind.annotation.RestController;
 import com.ou.springcode.dto.UserResponse;
 import com.ou.springcode.entity.Role;
 import com.ou.springcode.service.UserService;
+
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
+import io.swagger.v3.oas.annotations.tags.Tag;
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+@Tag(name = "Users", description = "CRUD User, phân trang, lọc")
 @RestController
 @RequestMapping("/api/users")
+@SecurityRequirement(name = "bearerAuth")
 public class UserController {
     private final UserService userService;
 
@@ -23,6 +30,7 @@ public class UserController {
         this.userService = userService;
     }
 
+    @Operation(summary = "Danh sách user")
     @GetMapping()
     public ResponseEntity<Page<UserResponse>> list(
         @RequestParam(required = false) String search,

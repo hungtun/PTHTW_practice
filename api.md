@@ -9,3 +9,5 @@ curl -s -X POST http://localhost:8080/api/auth/login \
     -d "{\"usernameOrEmail\":\"abcd\", \"password\":\"password123\"}" | jq .
 
     http://localhost:8080/h2-console/
+
+    http://localhost:8080/swagger-ui.html
